@@ -4,7 +4,7 @@
 
 ### Clone the Repository:
 ```bash
-git clone 
+git clone https://github.com/pcs-automation-class/class-sep-24.git
 cd your-repository-folder
 ```
 
