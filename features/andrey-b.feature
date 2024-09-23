@@ -12,3 +12,15 @@ Feature: Test login functionality
     Then Click element "//button[contains(text(), 'Login')]"
     Then Wait 1 seconds
     Then Verify page by title "Profotolizer - Projects"
+
+  Scenario: Login with incorrect credentials
+    Given Open "https://www.profitolizer.com"
+    Then Click element "//a[text()='Login']"
+#    Then Wait 5 seconds
+    Then Type "pcs.automationclass@gmail.com" into "//input[@name='username']"
+#    Then Wait 1 seconds
+    Then Type "123456" into "//input[@name='password']"
+#    Then Wait 1 seconds
+    Then Click element "//button[contains(text(), 'Login')]"
+#    Then Wait 1 seconds
+    Then Verify presents of element "//p[text()='Invalid username or password']"
