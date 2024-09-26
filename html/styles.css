@@ -5,3 +5,7 @@ span {
     color: white;
     font-size: 2em;
 }
+input {
+    display: block;
+    margin: 0 1rem;
+}
