@@ -12,7 +12,7 @@ Feature: Test login functionality
     Then Click element "//button[contains(text(), 'Login')]"
     Then Wait 1 seconds
     Then Verify page by title "Profotolizer - Projects"
-    Then Wait 5 seconds
+    Then Wait 4 seconds
     Then Click element "//button/span[text()='Add Project']"
 
   Scenario: Login with incorrect credentials
