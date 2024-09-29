@@ -10,7 +10,7 @@ Feature: Test login functionality
     Then Click element "//input[@name='password']"
     Then Wait 1 seconds
     Then Type "123321" into "//input[@name='password']"
-    Then Wait 3 seconds
+    Then Wait 1 seconds
     Then Click element "//button[contains(text(), 'Login')]"
     Then Wait 2 seconds
     Then Verify page by title "Profotolizer - Projects"
