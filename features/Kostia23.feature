@@ -1,42 +1,20 @@
-Feature: Test login functionality
-# This feature file contains login functionality tests
+Feature: Login functionality
 
-
-  Scenario: Login with correct credentials
-    Given Open "https://www.profitolizer.com"
-#    Then Wait 1 seconds
+Scenario: Login with correct credentials
+    Given Open "https://profitolizer.com"
     Then Click element "//a[text()='Login']"
-#    Then Wait 1 seconds
-    Then Type "pcs.automationclass@gmail.com" into "//input[@name='username']"
-    Then Type "Qwerty7" into "//input[@name='password']"
+#    Then Wait 5 seconds
+    Then Type "Lazio231288@gmail.com" into "//input[@name='username']"
+#    Then Wait 5 seconds
+    Then Type "23121988" into "//input[@name='password']"
+#    Then Wait 15seconds
     Then Click element "//button[contains(text(), 'Login')]"
-    Then Wait 1 seconds
-    Then Verify page by title "Profotolizer - Projects"
-    Then Wait 3 seconds
-    Then Click element "//button/span[text()='Add Project']"
-
-  Scenario: Login with incorrect credentials
-    Given Open "https://www.profitolizer.com"
-    Then Click element "//a[text()='Login']"
-#    Then Wait 6 seconds
-    Then Type "pcs.automationclass@gmail.com" into "//input[@name='username']"
-#    Then Wait 1 seconds
-    Then Type "123456" into "//input[@name='password']"
-#    Then Wait 1 seconds
-    Then Click element "//button[contains(text(), 'Login')]"
-    Then Wait 1 seconds
-    Then Verify presents of element "//p[text()='Invalid username or password']"
-
-
-   Scenario: Login with incorrect credentials
-    Given Open "https://www.profitolizer.com"
-    Then Click element "//a[text()='Login']"
-#    Then Wait 6 seconds
-    Then Type "pcs.automationclass@gmail.com" into "//input[@name='username']"
-#    Then Wait 1 seconds
-    Then Type "123456" into "//input[@name='password']"
-#    Then Wait 1 seconds
-    Then Click element "//button[contains(text(), 'Login')]"
-    Then Wait 1 seconds
-    Then Verify presents of element "//p[text()='Invalid username or password']"
-
+    Then Wait 2 seconds
+    Then Verify page by title "Profotolizer - P&L charts"
+    Then Wait 2 seconds
+    Then Click element "//ul//li/a/span[contains(text(), 'Team')]"
+    Then Wait 2 seconds
+    Then Click element "//ul//li[3]//ul//li[1]//a//span[contains(text(), 'Positions Roster')]"
+    Then Wait 2 seconds
+    Then Click element "//button[contains(text(), 'Add Position')]"
+    Then Wait 2 seconds
