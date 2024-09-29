@@ -17,4 +17,4 @@ Scenario: Login with correct credentials
     Then Click element "//ul//li[3]//ul//li[1]//a//span[contains(text(), 'Positions Roster')]"
     Then Wait 2 seconds
     Then Click element "//button[contains(text(), 'Add Position')]"
-    Then Wait 3 seconds
+    Then Wait 4 seconds
