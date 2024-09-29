@@ -359,6 +359,23 @@ Feature: Test login functionality
     Then Wait 1 seconds
     Then Verify presents of element "//div[@class="text-wrap text-start"][text()='Another, gal']"
 
+  Scenario: Check investment group help
+    Given Open "https://www.profitolizer.com"
+    Then Wait 1 seconds
+    Then Click element "//a[text()='Login']"
+    Then Wait 1 seconds
+    Then Type "dudnikovaanna545+1@gmail.com" into "//input[@name='username']"
+    Then Type "09172024@Sept" into "//input[@name='password']"
+    Then Click element "//button[contains(text(), 'Login')]"
+    Then Wait 1 seconds
+    Then Click element "//a[@data-bs-target="#Investments-nav"]"
+    Then Wait 1 seconds
+    Then Click element "//ul[@id="Investments-nav"]//span[text()='Groups']"
+    Then Wait 1 seconds
+    Then Click element "//h1[text()='Investment Groups']/../button[@title='Help']"
+    Then Wait 1 seconds
+    Then Verify presents of element "//h4[text()='Investment Groups Help']"
+
 
 
 
