@@ -2,7 +2,7 @@ Feature: Test login functionality
 
   Scenario: Login happy path
     Given Open "https://www.profitolizer.com"
-    Then Wait 2 seconds
+    Then Wait 1 seconds
     Then Click element "//a[text()='Login']"
     Then Wait 2 seconds
     Then Type "ratovbj@htmail.store" into "//input[@name='username']"
