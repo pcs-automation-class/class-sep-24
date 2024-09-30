@@ -4,10 +4,10 @@ Feature: Test login functionality
   
   Scenario: Play with login functionality
     Given Open "https://www.profitolizer.com/"
-    Then Wait 1 seconds
+    Then Wait 2 seconds
     Then Click element "//a[@class='header-link _btn__link']"
     Then Wait 1 seconds
-#    Then Click element "//button[@class='btn btn-primary w-100']"
+    Then Click element "//button[@class='btn btn-primary w-100']"
     Then Wait 1 seconds
     Then Verify presents of element "//div[text()='Email is required']"
     Then Wait 1 seconds
