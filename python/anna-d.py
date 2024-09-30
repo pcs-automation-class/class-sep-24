@@ -26,10 +26,12 @@
 # two = float(input("Enter one more number: "))
 # print(one == two)
 
-print("Let`s calculate the discriminant together!")
-b = int(input("Enter b"))
-a = int(input("Enter a"))
-c = int(input("Enter c"))
-D = b*b - 4*a*c
-print("The discriminant is", D)
+# print("Let`s calculate the discriminant together!")
+# b = int(input("Enter b"))
+# a = int(input("Enter a"))
+# c = int(input("Enter c"))
+# D = b*b - 4*a*c
+# print("The discriminant is", D)
+
+
 
