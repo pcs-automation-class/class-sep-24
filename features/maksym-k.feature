@@ -7,7 +7,7 @@ Feature: Test login functionality
     Then Wait 1 seconds
     Then Click element "//a[@class='header-link _btn__link']"
     Then Wait 1 seconds
-    Then Click element "//button[@class='btn btn-primary w-100']"
+#    Then Click element "//button[@class='btn btn-primary w-100']"
     Then Wait 1 seconds
     Then Verify presents of element "//div[text()='Email is required']"
     Then Wait 1 seconds
