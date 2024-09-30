@@ -33,5 +33,28 @@
 # D = b*b - 4*a*c
 # print("The discriminant is", D)
 
+# More math
+#1
+a = 8
+b = 6
+# c = (a+b)*(a-b)
+# d = a*a-b*b
+# print(c==d)
+
+#2
+# e = a**3 +b**3
+# f = (a+b)*(a**2 - a*b + b**2)
+# print(e==f)
+
+#3
+# print(a%2)
+# print(a%3)
+# print(a%1)
+# print(a%8)
+# print(abs(-a))
+
+#4
+#print(-(a/2+a*b)<0)
+print(abs(-(a/2+a*b))<0/b)
 
 
