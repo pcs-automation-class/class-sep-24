@@ -36,18 +36,20 @@ Feature: Test login functionality
     Then Verify presents of element "//p[text()='Invalid username or password']"
 
 
-  Scenario: Login with correct credentials
+  Scenario: Fill out data with table
     Then Type "pcs.automationclass@gmail.com" into "//input[@name='username']"
     Then Type "Qwerty7" into "//input[@name='password']"
     Then Click element "//button[contains(text(), 'Login')]"
     Then Wait 1 seconds
     Then Verify page by title "Profotolizer - Projects"
-    Then Fill out following information
-      | project     | First project    |
-      | start_date  | 09/30/2024       |
-      | description | Some description |
-      | dimension   | Month            |
-      | duration    | 2 Years          |
     Then Fill out following information with keys
-      | project       | start_date | description      | dimension | duration |
-      | First project | 09/30/2024 | Some description | Month     | 2 Years  |
+      | key                 | value            |
+      | Project Name        | First project    |
+      | Start date          | 09/30/2024       |
+      | Project description | Some description |
+      | Period Dimension    | Month            |
+      | Project Duration    | 2 Years          |
+#    Then  Fill out following information
+#      | project       | start_date | description      | dimension | duration |
+#      | First project | 09/30/2024 | Some description | Month     | 2 Years  |
+    Then Wait 5 seconds
