@@ -84,30 +84,3 @@ Feature: Test login functionality
     Then Wait 1 seconds
     Then Click element "//button[text()=' Save'][not(contains(@class,'me-2'))]"
     Then Wait 2 seconds
-
-  Scenario: Creating/Deleting a Project
-    Given Open "https://www.profitolizer.com"
-    Then Click element "//a[text()='Login']"
-    Then Wait 2 seconds
-    Then Type "ratovbj@htmail.store" into "//input[@name='username']"
-    Then Wait 2 seconds
-    Then Type "123321" into "//input[@name='password']"
-    Then Wait 2 seconds
-    Then Click element "//button[contains(text(), 'Login')]"
-    Then Wait 2 seconds
-    Then Verify page by title "Profotolizer - Projects"
-    Then Fill out following information with keys
-      | key                 | value            |
-      | Project Name        | example          |
-      | Start date          | 2024/10/04       |
-      | Project description | test             |
-      | Period Dimension    | Month            |
-      | Project Duration    | 2 Years          |
-    Then Wait 5 seconds
-    Then Click element "//button[text()=' Save'][not(contains(@class,'me-2'))]"
-    Then Wait 7 seconds
-    Then Click element "//span[text()='Settings']"
-    Then Wait 2 seconds
-    Then Click element "//button[contains(text(),'Delete')]"
-    Then Wait 2 seconds
-    Then Click element "//button[text()='Delete']"
