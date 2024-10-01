@@ -1,54 +1,55 @@
-#Feature: Test login functionality
-## Some login functionality tests
-#
-#
-#  Scenario: Play with login functionality
-#    Given Open "https://www.profitolizer.com/"
-#    Then Wait 5 seconds
-#    Then Click element "//a[@class='header-link _btn__link']"
-#    Then Wait 1 seconds
-#    Then Click element "//button[@class='btn btn-primary w-100']"
-#    Then Wait 1 seconds
-#    Then Verify presents of element "//div[text()='Email is required']"
-#    Then Wait 1 seconds
-#    Then Verify presents of element "//div[text()='Password is required']"
-#    Then Wait 1 seconds
-#    Then Click element "//a[text()='Forgot password?']"
-#    Then Wait 1 seconds
-#    Then Verify presents of element "//h5[text()='Restore Password']"
-#    Then Wait 1 seconds
-#    Then Type "test@mail.com" into "//input[@class='el-input__inner']"
-#    Then Wait 1 seconds
-#    Then Click element "//button[text()=' Send']"
-#    Then Wait 1 seconds
-#    Then Verify presents of element "//h5[contains(text(), 'Please check your inbox')]"
-#    Then Wait 1 seconds
-#    Then Click element "//a[@href='https://profitolizer.com/']"
-#    Then Wait 1 seconds
-
 Feature: Test login functionality
 # This feature file contains login functionality tests
-
-
-  Scenario: Login with correct credentials
+  Background:
     Given Open "https://www.profitolizer.com"
-#    Then Wait 1 seconds
+    Then Wait 1 seconds
     Then Click element "//a[text()='Login']"
-#    Then Wait 1 seconds
-    Then Type "pcs.automationclass@gmail.com" into "//input[@name='username']"
-    Then Type "Qwerty7" into "//input[@name='password']"
+
+#  @no_background
+  Scenario: Login with correct credentials
+    Then Type "makstester77@gmail.com" into "//input[@name='username']"
+    Then Type "12345678" into "//input[@name='password']"
     Then Click element "//button[contains(text(), 'Login')]"
     Then Wait 1 seconds
     Then Verify page by title "Profotolizer - Projects"
 
+#  @regression
+  Scenario Outline: Test with valid credentials
+    Then Type "<login>" into "//input[@name='username']"
+    Then Type "<password>" into "//input[@name='password']"
+    Then Click element "//button[contains(text(), 'Login')]"
+    Then Wait 1 seconds
+    Then Verify page by title "Profotolizer - Projects"
+    Examples:
+      | login                    | password |
+      | makstester77@gmail.com   | 12345678 |
+      | makstester77+1@gmail.com | 12345678 |
+
+#  @regression
   Scenario: Login with incorrect credentials
-    Given Open "https://www.profitolizer.com"
-    Then Click element "//a[text()='Login']"
-#    Then Wait 5 seconds
-    Then Type "pcs.automationclass@gmail.com" into "//input[@name='username']"
-#    Then Wait 1 seconds
+    Then Type "makstester7@gmail.com" into "//input[@name='username']"
+    Then Wait 1 seconds
     Then Type "123456" into "//input[@name='password']"
-#    Then Wait 1 seconds
+    Then Wait 1 seconds
     Then Click element "//button[contains(text(), 'Login')]"
     Then Wait 1 seconds
     Then Verify presents of element "//p[text()='Invalid username or password']"
+
+
+  Scenario: Fill out data with table
+    Then Type "makstester77@gmail.com" into "//input[@name='username']"
+    Then Type "12345678" into "//input[@name='password']"
+    Then Click element "//button[contains(text(), 'Login')]"
+    Then Wait 1 seconds
+    Then Verify page by title "Profotolizer - Projects"
+    Then Fill out following information with keys
+      | key                 | value            |
+      | Project Name        | First project    |
+      | Start date          | 10/01/2024       |
+      | Project description | Some description |
+      | Period Dimension    | Month            |
+      | Project Duration    | 2 Years          |
+#    Then  Fill out following information
+#      | project       | start_date | description      | dimension | duration |
+#      | First project | 09/30/2024 | Some description | Month     | 2 Years  |
+    Then Wait 5 seconds
