@@ -1,8 +1,8 @@
 #simple calculator with operations
 
-a = float(input("Please enter a value"))
-b = float(input("Please enter b value"))
-operation = input("Please enter operation type (+ , - , *, /)")
+a = float(input("Please enter a value: "))
+b = float(input("Please enter b value: "))
+operation = input("Please enter operation type (+ , - , *, /): ")
 
 
 def calculator(a, b, operation):
@@ -21,4 +21,4 @@ def calculator(a, b, operation):
 
 result = calculator(a, b, operation)
 
-print(result)
+print("Answer is: ", result)
