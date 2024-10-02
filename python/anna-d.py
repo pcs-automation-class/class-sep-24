@@ -61,7 +61,26 @@
 
 # CLASS 7
 
-# loop
+# new = range(-11,11)
+# for i in new:
+#     if i <= -1:
+#         print(abs(i))
+#     else:
+#         i +=10
+#         print(i)
+
+# while True:
+#     actual_mood = input("Is your mood good? Beware it's yes/no question\n").lower()
+#     if actual_mood == "yes":
+#         print("Great, thanks for the answer")
+#     elif actual_mood == "no":
+#         print("Don't be sad, there's more to come")
+#     else:
+#         print("Be careful when you type your answer")
+#     if input("Would you like to try again? (yes/no): ").lower() == "no":
+#         break
+# print(":(")
+
 # month_number = int(input("Enter the month number when you were born\n"))
 # if month_number == 1 or month_number == 2 or month_number == 12:
 #     print("You were born in winter")
