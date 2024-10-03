@@ -128,34 +128,56 @@
 
 #Converter
 
-while True:
-    option = input("\nWhat would you like to convert? \n1: m/s --> km/h, \n2: km/h --> m/s, \n3: C --> F, "
-                   "\n4: F --> C, \nq to exit \n")
-    if option == "1":
-        m = float(input("How many meters per second?"))
-        result = m * 3.6
-        print(f"{m} m/s equals {result} km/h")
+# while True:
+#     option = input("\nWhat would you like to convert? \n1: m/s --> km/h, \n2: km/h --> m/s, \n3: C --> F, "
+#                    "\n4: F --> C, \nq to exit \n")
+#     if option == "1":
+#         m = float(input("How many meters per second?"))
+#         result = m * 3.6
+#         print(f"{m} m/s equals {result} km/h")
+#
+#     elif option == "2" :
+#         km = float(input("How many kilometers per hour?"))
+#         result = round(km * 1000/3600, 2)
+#         print(f"{km} m/s equals {result} m/s")
+#
+#     elif option == "3" :
+#         C = float(input("How many degrees Celsius?"))
+#         result = C * 1.8 + 32
+#         print(f"{C} degrees Celsius equals {result} degrees Fahrenheit")
+#
+#     elif option == "4" :
+#         F = float(input("How many degrees Fahrenheit?"))
+#         result = (F - 32)/1.8
+#         print(f"{F} degrees Fahrenheit equals {result} degrees Celsius")
+#
+#     else:
+#         print("Please choose one option")
+#
+#     if option == "q":
+#         break
 
-    elif option == "2" :
-        km = float(input("How many kilometers per hour?"))
-        result = round(km * 1000/3600, 2)
-        print(f"{km} m/s equals {result} m/s")
+# Updated calculator
 
-    elif option == "3" :
-        C = float(input("How many degrees Celsius?"))
-        result = C * 1.8 + 32
-        print(f"{C} degrees Celsius equals {result} degrees Fahrenheit")
-
-    elif option == "4" :
-        F = float(input("How many degrees Fahrenheit?"))
-        result = (F - 32)/1.8
-        print(f"{F} degrees Fahrenheit equals {result} degrees Celsius")
-
+def calculator(a,b, sign):
+    if sign == "+":
+        res = a+b
+    elif sign == "-":
+        res = a-b
+    elif sign == "*":
+        res = a*b
+    elif sign == "/":
+        res = a/b
     else:
-        print("Please choose one option")
+         return "Input must be a number or digit"
+    return f"The result of calculation is {res}"
+result = calculator(1, 2, "+")
+print(result)
 
-    if option == "q":
-        break
+
+
+
+
 
 
 
