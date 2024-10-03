@@ -1,4 +1,6 @@
 # CLASS 6
+import random
+
 
 # name = input("What is your name?")
 # surname = input("What is your surname?")
@@ -159,21 +161,42 @@
 
 # Updated calculator
 
-def calculator(a,b, sign):
-    if sign == "+":
-        res = a+b
-    elif sign == "-":
-        res = a-b
-    elif sign == "*":
-        res = a*b
-    elif sign == "/":
-        res = a/b
-    else:
-         return "Input must be a number or digit"
-    return f"The result of calculation is {res}"
-result = calculator(1, 2, "+")
-print(result)
+# def calculator(a,b, sign):
+#     if sign == "+":
+#         res = a+b
+#     elif sign == "-":
+#         res = a-b
+#     elif sign == "*":
+#         res = a*b
+#     elif sign == "/":
+#         res = a/b
+#     else:
+#          return "Input must be a number or digit"
+#     return f"The result of calculation is {res}"
+# result = calculator(1, 2, "+")
+# print(result)
 
+#Guess the number
+
+def guess_the_number():
+    riddle = random.randint(0, 9)
+    guessed_numbers = []
+    while True:
+        try:
+            attempt = int(input("Please enter a number between 0 and 9: "))
+            guessed_numbers.append(attempt)
+            if attempt < riddle:
+                print("Need more")
+            elif attempt > riddle:
+                print("Need less")
+            else:
+                number_of_attempts = len(guessed_numbers)
+                print(f"Congratulations! You guessed the number {attempt} after {number_of_attempts} attempts")
+                break
+        except ValueError:
+            print("Пожалуйста, введите корректное число.")
+
+guess_the_number()
 
 
 
