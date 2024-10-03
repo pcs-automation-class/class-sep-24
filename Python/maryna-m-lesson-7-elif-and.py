@@ -78,3 +78,49 @@
 #   else:
 #       print("The number is within the range or 10 to 20.")
 
+# for loop
+# for i in range(100):
+#     print(i)
+#
+# for loop in a list
+# veggies = ['cucumber', 'kale', 'cabbage']
+# for x in veggies:
+#     print(x)
+
+# for char in 'Maryna':
+#     print(char)
+#
+# for x in 'Maryna':
+#     print(x)
+#
+# break statement
+# veggies = ['cucumber', 'kale', 'cabbage']
+# for x in veggies:
+#     print(x)
+#     if x == 'kale':
+#      break
+
+# my_range = int(input("Enter any number in range of 10:"))
+# for i in range(my_range):
+#     print(i)
+
+# the while loop
+# score = int(input("Enter your score:"))
+# while score > 2:
+#     print(score)
+#     score = score-1
+# the same to the previous line is score -= 1
+
+#exit the loop when m=15
+# m = 10
+# while m < 30:
+#     print (m)
+#     if m == 15:
+#         break
+#     m += 2
+
+
+
+
+
+
