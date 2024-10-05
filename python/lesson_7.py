@@ -134,16 +134,16 @@
 # print("Done")
 #
 #
-while True:
-    answer = input("\nChoose what do you want to convert? \n1 - C -> F, \n2 - F -> C, \n3 - Km -> Miles, "
-                   "\n4 - Miles -> Km or \nq to exit:  ")
-    if answer == "1":
-        print("C -> F")
-    elif answer == "2":
-        print("F -> C")
-
-    if answer == "q":
-        break
+# while True:
+#     answer = input("\nChoose what do you want to convert? \n1 - C -> F, \n2 - F -> C, \n3 - Km -> Miles, "
+#                    "\n4 - Miles -> Km or \nq to exit:  ")
+#     if answer == "1":
+#         print("C -> F")
+#     elif answer == "2":
+#         print("F -> C")
+#
+#     if answer == "q":
+#         break
 
 # name = "Andrey"
 # # print(name)
