@@ -198,39 +198,210 @@
 
 # --------------------------------Lesson_8_file------------------------------------------
 
+# ----------------------list
+
+# student_1 = 'Andrey'
+# student_2 = 'Olga'
+# student_3 = 'Maksym'
+
+# students = ['Andrey', 'Olga', 'Maksym', 'Bob', 'New']
+
+# ages = [23, 21, 44, 55, 43]
+
+# student = ['Maksym', 36, 'Green', 12.0, True, ['English', 'Ukrainian', [1, 2]]]
+
+# student = ['Maksym', 36, 'Green', 12.0, True]
+
+# student.append('Olga')
+
+# print(student)
+# print(len(student))
+
+# if student[1][0] == 'English':
+#     pass
+
+# students = ['Andrey', 'Olga', 'Maksym', 'Bob', 'New', 'New2']
+# for x in students:
+#     print(x)
+
+# for index in range(len(students)):
+#     print(index, students[index])
+
+# print('Done')
+
+# one = []
+# print(type(one))
+
+# two = list()
+# print(type(two))
+
+# answers = []
+# input_1 = input('Enter First name: ')
+# input_2 = input('Enter Last name: ')
+# input_3 = input('Enter Age: ')
+# answers.append(input_1)
+# answers.append(input_2)
+# answers.append(input_3)
+
+# answers.append(input('Enter First name: '))
+# answers.append(input('Enter Last name: '))
+# answers.append(input('Enter Age: '))
+
+# answers = [input('Enter First name: '),
+#            input('Enter Last name: '),
+#            input('Enter Age: ')]
+# print(answers)
+
+# a = 1
+# b = 2
+# print(a, b)
+# a, b = b, a
+# print(a, b)
+
+# students = ['Andrey', 'Olga', 'Maksym', 'Bob', 'New', 'New2']
+# print(students)
+# students[0], students[1] = students[1], students[0]
+# print(students)
+
+# --------------------------------------Tuple
+
+# full_name = ('Maksym', 'Kyrychok', 'Kyrychok')
+# print(full_name)
+# print(type(full_name))
+
+# full_name_to_list = list(full_name)
+# print(full_name_to_list)
+# print(type(full_name_to_list))
+
+# --------------------------------------Set
+
+# name_set = {'Maksym', 'Kyrychok', 'Kyrychok'}
+# print(name_set)
+# print(type(name_set))
+
+# name_set.add('New')
+# print(name_set)
+# print(type(name_set))
+
+# name_set.remove('Kyrychok')
+# print(name_set)
+# print(type(name_set))
+
+# list_file = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0 ,0, 0, 0, 0, 6, 6, 6, 6, 6, 6, 4,
+#                   4, 4, 4, 4, 4, 4, 4]
+# list_file_to_set_file = set(list_file)
+# print(list_file_to_set_file)
+
+# unique_values = list(list_file_to_set_file)
+# print(unique_values)
+# print(type(unique_values))
+
+# ---------------------------------------Dictionary
+
+# student = {
+#     'first_name:': 'Maksym',
+#     'last_name:': 'Krychok',
+#     'email:': 'email@email.com',
+#     'age:': 36,
+#     0: 'new',
+#     1: 'new2'
+# }
+# print(student)
+# print(student[0])
+
+# student['first_name'] = 'Bob'
+# print(student)
+
+# student['middle_name:'] = 'MC'
+# print(student)
+
+# print(student.keys())
+
+# for key in student.keys():
+#     print(key)
+
+# for key, value in student.items():
+#     print(key, value)
 
 
+# --------------------------------------------------func_file---------------------------------------------------
+
+# def my_print_function(result):
+#     print('**********************************')
+#     print('Result is:', result)
+#     print('----------------------------------')
 
 
+# a = 1
+# b = 2
+# c = a + b
+# my_print_function(c)
+
+# c = a - b
+# my_print_function(c)
+
+# c = a * b
+# my_print_function(c)
+
+# c = a / b
+# my_print_function(c)
 
 
+# -----------------Calculator------------------
+# while True:
+#     first = float(input("Enter first number: "))
+#     second = float(input("Enter second number: "))
+#     sign = input("Enter a sign (+, -, *, /): ")
+#     result = 0
+
+    # if sign == "+":
+    #     result = first + second
+    # elif sign == "-":
+    #     result = first - second
+    # elif sign == "*":
+    #     result = first * second
+    # elif sign == "/":
+    #     result = first / second
+    # else:
+    #     print("Invalid input")
+    # print(result)
+
+    # if input("Would you like to stop? (Y/N): ").lower() == "y":
+    #     break
+# print("Done")
+
+# ----------------------------------func_calculator-----------------------------
+
+class Calculator:
+
+    def add(self, a, b):
+        print(a + b)
+
+    def substract(self, a, b):
+        print(a - b)
+
+    def multiply(self, a, b):
+        print(a * b)
+
+    def devide(self, a, b):
+        print(a / b)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+while True:
+    calc = Calculator()
+    a = int(input("Enter first number: "))
+    b = int(input("Enter second number: "))
+    operator = input("Enter operator: ")
+    if operator == "+":
+        calc.add(a, b)
+    elif operator == "-":
+        calc.substract(a, b)
+    elif operator == "*":
+        calc.multiply(a, b)
+    elif operator == "/":
+        calc.devide(a, b)
+    else:
+        print("Invalid operator")
+    if input("Would you like to stop? (Y/N): ").lower() == "y":
+        break
+    print("Done")
