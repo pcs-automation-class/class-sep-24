@@ -147,7 +147,8 @@
 
 # ------------------Converter--------------------
 # while True:
-#     answer = input("\nChoose what to convert? \n1 - C -> F, \n2 - F -> C, \n3 - Km -> Ml, \n4 - Ml -> Km \nor q to exit: ")
+#     answer = input(
+#     "\nChoose what to convert? \n1 - C -> F, \n2 - F -> C, \n3 - Km -> Ml, \n4 - Ml -> Km \nor q to exit: ")
 #     if answer == "1":
 #         print("C -> F")
 #     elif answer == "2":
