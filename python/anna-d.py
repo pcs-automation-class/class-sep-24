@@ -1,4 +1,6 @@
 # CLASS 6
+import random
+
 
 # name = input("What is your name?")
 # surname = input("What is your surname?")
@@ -128,34 +130,146 @@
 
 #Converter
 
-while True:
-    option = input("\nWhat would you like to convert? \n1: m/s --> km/h, \n2: km/h --> m/s, \n3: C --> F, "
-                   "\n4: F --> C, \nq to exit \n")
-    if option == "1":
-        m = float(input("How many meters per second?"))
-        result = m * 3.6
-        print(f"{m} m/s equals {result} km/h")
+# while True:
+#     option = input("\nWhat would you like to convert? \n1: m/s --> km/h, \n2: km/h --> m/s, \n3: C --> F, "
+#                    "\n4: F --> C, \nq to exit \n")
+#     if option == "1":
+#         m = float(input("How many meters per second?"))
+#         result = m * 3.6
+#         print(f"{m} m/s equals {result} km/h")
+#
+#     elif option == "2" :
+#         km = float(input("How many kilometers per hour?"))
+#         result = round(km * 1000/3600, 2)
+#         print(f"{km} m/s equals {result} m/s")
+#
+#     elif option == "3" :
+#         C = float(input("How many degrees Celsius?"))
+#         result = C * 1.8 + 32
+#         print(f"{C} degrees Celsius equals {result} degrees Fahrenheit")
+#
+#     elif option == "4" :
+#         F = float(input("How many degrees Fahrenheit?"))
+#         result = (F - 32)/1.8
+#         print(f"{F} degrees Fahrenheit equals {result} degrees Celsius")
+#
+#     else:
+#         print("Please choose one option")
+#
+#     if option == "q":
+#         break
 
-    elif option == "2" :
-        km = float(input("How many kilometers per hour?"))
-        result = round(km * 1000/3600, 2)
-        print(f"{km} m/s equals {result} m/s")
+# Updated calculator
 
-    elif option == "3" :
-        C = float(input("How many degrees Celsius?"))
-        result = C * 1.8 + 32
-        print(f"{C} degrees Celsius equals {result} degrees Fahrenheit")
+# def calculator(a,b, sign):
+#     if sign == "+":
+#         res = a+b
+#     elif sign == "-":
+#         res = a-b
+#     elif sign == "*":
+#         res = a*b
+#     elif sign == "/":
+#         res = a/b
+#     else:
+#          return "Input must be a number or digit"
+#     return f"The result of calculation is {res}"
+# result = calculator(1, 2, "+")
+# print(result)
 
-    elif option == "4" :
-        F = float(input("How many degrees Fahrenheit?"))
-        result = (F - 32)/1.8
-        print(f"{F} degrees Fahrenheit equals {result} degrees Celsius")
+#Guess the number
 
-    else:
-        print("Please choose one option")
+# def guess_the_number():
+#     riddle = random.randint(0, 9)
+#     guessed_numbers = []
+#     while True:
+#         try:
+#             attempt = int(input("Please enter a number between 0 and 9: "))
+#             guessed_numbers.append(attempt)
+#             if attempt < riddle:
+#                 print("Need more")
+#             elif attempt > riddle:
+#                 print("Need less")
+#             else:
+#                 number_of_attempts = len(guessed_numbers)
+#                 print(f"Congratulations! You guessed the number {attempt} after {number_of_attempts} attempts")
+#                 break
+#         except ValueError:
+#             print("It should be a digit")
+#
+# guess_the_number()
 
-    if option == "q":
-        break
+
+# Min & Max etc
+
+# many = 10
+# numbers = []
+# for i in range(many):
+#     numbers.append(random.randint(1, 99))
+#     minimum = min(numbers)
+#     maximum = max(numbers)
+# print(numbers)
+# print(minimum)
+# print(maximum)
+# print(sum(numbers))
+# print(sorted(numbers))
+
+# Duplicate
+# list = [1,1,1,2,3,4,5,6,7,7,7,7,7,70]
+# print(set(list))
+
+
+# Much
+# words = ["Anna", "Dudnikova", "22", "IT", "the Earth"]
+# print(random.choice(words))
+# print(sorted(words))
+# for index in range(len(words)):
+#     print(index, words[index])
+
+# words = ["Anna", "Dudnikova", 22, "22", "IT", "the Earth", [1, "2", 2, 3, "Day", 4, 4, "Night"]]
+# random_word = random.choice(words)
+#
+# if isinstance(random_word, int):
+#     rand = str(random_word)
+#     print(f"Correct! {rand} is an integer")
+# else:
+#     print("Nope " + str(random_word) + " is a string")
+
+
+
+# More
+# list = ["Anna", "Anna", "Dudnikova", 15, "22", "IT", "the Earth", "another 1", 5, 15]
+# print(set(list))
+#
+# for item in list:
+#     new = set(item)
+#     print(type(item))
+#     break
+# print((reversed(list)))
+# print(set(reversed(list)))
+
+#Dictionary
+
+info = {'day': 'Sunday', 'year': 2024, 'city': 'San Francisco',
+        'currency': 'dollar', 'weather': 'windy', 1: 0, 2: True, 0: "False",
+        'more': ["a", "B", 123]}
+# print(info)
+# print(info['city'])
+# print(info['year'])
+# print(info[1])
+# print(info[2])
+# print(info[0])
+# print(info['more'])
+# print(info['more'][0])
+# print(info.keys())
+info.update({'month': 'October'})
+print(info)
+
+
+
+
+
+
+
 
 
 
