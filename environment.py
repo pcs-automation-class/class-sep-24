@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
-# from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.options import Options
 
 
 def before_all(context):
@@ -12,35 +12,35 @@ def before_all(context):
     :param context: The Behave context object that holds shared data between steps and hooks.
     """
 
-    # chrome_options = Options()
+    chrome_options = Options()
     # chrome_options.add_argument("--incognito")
 
-    context.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    context.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     context.driver.maximize_window()
 
 
-def before_feature(context):
-    print("before_feature")
-
-
-def before_scenario(context):
-    print("before_scenario")
-
-
-def before_step(context):
-    print("before_step")
-
-
-def after_step(context):
-    print("after_step")
-
-
-def after_scenario(context):
-    print("after_scenario")
-
-
-def after_feature(context):
-    print("after_feature")
+# def before_feature(context, feature):
+#     print("before_feature")
+#
+#
+# def before_scenario(context, scenario):
+#     print("before_scenario")
+#
+#
+# def before_step(context, step):
+#     print("before_step")
+#
+#
+# def after_step(context, step):
+#     print("after_step")
+#
+#
+# def after_scenario(context, scenario):
+#     print("after_scenario")
+#
+#
+# def after_feature(context, feature):
+#     print("after_feature")
 
 
 def after_all(context):

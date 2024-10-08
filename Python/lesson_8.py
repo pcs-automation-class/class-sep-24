@@ -1,3 +1,10 @@
+# import math
+from math import sqrt
+
+# print(math.sqrt(20))
+print(sqrt(25))
+
+
 # # List
 #
 # student_1 = "Andrey"
@@ -110,28 +117,28 @@
 # print(unique_values)
 # print(type(unique_values))
 
-# Dictionary
-student = {
-    # key       :  value
-    'first_name': 'Andrey',
-    'last_name': 'Smith',
-    "email": 'andrey@gmail.com',
-    'age': 25,
-    0: 'new',
-    1: 'new 2'
-}
-
-
-print(student)
-print(student[0])
-
-student['first_name'] = "Bob"
-print(student)
-
-student['middle_name'] = "MC"
-print(student)
-
-print(student.keys())
-
-for key, value in student.items():
-    print(key, value)
+# # Dictionary
+# student = {
+#     # key       :  value
+#     'first_name': 'Andrey',
+#     'last_name': 'Smith',
+#     "email": 'andrey@gmail.com',
+#     'age': 25,
+#     0: 'new',
+#     1: 'new 2'
+# }
+#
+#
+# print(student)
+# print(student[0])
+#
+# student['first_name'] = "Bob"
+# print(student)
+#
+# student['middle_name'] = "MC"
+# print(student)
+#
+# print(student.keys())
+#
+# for key, value in student.items():
+#     print(key, value)

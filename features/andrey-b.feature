@@ -1,17 +1,29 @@
 Feature: Test login functionality
 # This feature file contains login functionality tests
-  Background:
-    Given Open "https://www.profitolizer.com"
-    Then Wait 1 seconds
-    Then Click element "//a[text()='Login']"
+#  Background:
+##    Given Open "https://www.profitolizer.com/"
+#    Given Open prod environment
+#    Then Wait 1 seconds
+#    Then Click element "//a[text()='Login']"
 
 #  @no_background
   Scenario: Login with correct credentials
+    Given Open prod environment
+    Then Wait 1 seconds
+    Then Click element "//a[text()='Login']"
     Then Type "pcs.automationclass@gmail.com" into "//input[@name='username']"
     Then Type "Qwerty7" into "//input[@name='password']"
     Then Click element "//button[contains(text(), 'Login')]"
     Then Wait 1 seconds
     Then Verify page by title "Profotolizer - Projects"
+
+
+  Scenario: Correct credentials
+    Given Open prod environment
+    Then Login with Sale credentials
+    Then Verify page by title "Profotolizer - Projects"
+    Then Andrey Open url
+
 
 #  @regression
   Scenario Outline: Test with valid credentials

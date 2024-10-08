@@ -4,11 +4,26 @@ from behave import step
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.keys import Keys
 
 
 @step('Open "{url}"')
 def open_url(context, url):
+    print(f"Opening url {url}")
     context.driver.get(url)
+
+
+@step('Open {env} environment')
+def open_env(context, env):
+    envs = {
+        'prod': 'https://www.profitolizer.com/',
+        'dev': 'https://www.dev.profitolizer.com/',
+        'test': 'https://www.test.profitolizer.com/',
+        'uat': 'https://www.uat.profitolizer.com/',
+        'qa': 'https://www.qa.profitolizer.com/',
+    }
+    open_url(context, envs[env])
+    sleep(1)
 
 
 @step('Wait {sec} seconds')
@@ -18,17 +33,18 @@ def wait_sec(context, sec):
 
 @step('Click element "{xpath}"')
 def click_element(context, xpath):
-    # element = context.driver.find_element(By.XPATH, xpath)
+    element = context.driver.find_element(By.XPATH, xpath)
 
-    element = WebDriverWait(context.driver, 10).until(EC.element_to_be_clickable((By.XPATH, xpath)))
+    # element = WebDriverWait(context.driver, 10).until(EC.element_to_be_clickable((By.XPATH, xpath)))
     element.click()
 
 
 @step('Type "{text}" into "{xpath}"')
 def type_text(context, text, xpath):
-    element = WebDriverWait(context.driver, 10).until(EC.presence_of_element_located((By.XPATH, xpath)))
-    # element = context.driver.find_element(By.XPATH, xpath)
+    # element = WebDriverWait(context.driver, 10).until(EC.presence_of_element_located((By.XPATH, xpath)))
+    element = context.driver.find_element(By.XPATH, xpath)
     element.send_keys(text)
+    # element.send_keys(Keys.COMMAND, 'a')
 
 
 @step('Verify page by title "{text}"')
@@ -80,3 +96,17 @@ def create_project_keys(context):
             click_element(context, f"//li/span[text()='{row.cells[1]}']")
         else:
             click_element(context, f"{elements[row.cells[0]]}{row.cells[1]}']")
+
+
+@step("Login with {user} credentials")
+def login(context, user):
+    users = {
+        'Admin': ('pcs.automationclass@gmail.com', 'Qwerty7'),
+        'Sale': ('pcs.automationclass+1@gmail.com', 'Qwerty7+1'),
+        'Wrong': ('pcs.automationclass@gmail.com', 'Qwerty'),
+    }
+    click_element(context, "//a[text()='Login']")
+    type_text(context, users[user][0], "//input[@name='username']")
+    type_text(context, users[user][1], "//input[@name='password']")
+    click_element(context, "//button[contains(text(), 'Login')]")
+    sleep(1)
