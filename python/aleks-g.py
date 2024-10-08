@@ -76,6 +76,5 @@ def main():
         else:
             print("Invalid option. Please choose again.")
 
-# Run the main program
 main()
 
