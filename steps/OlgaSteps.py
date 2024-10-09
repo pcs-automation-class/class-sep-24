@@ -10,7 +10,10 @@ from selenium.webdriver.support.wait import WebDriverWait
 def open_url(context, url):
     context.driver.get(url)
 
-
+@step('Verify presents of element "{xpath}"')
+def verify_presents_of_element(context, xpath):
+    elements = context.driver.find_elements(By.XPATH, xpath)
+    assert len(elements) == 1
 
 # @And("at least one {string} element should contain the text {string}")
 #
