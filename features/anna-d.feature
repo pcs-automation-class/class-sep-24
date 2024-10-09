@@ -191,10 +191,10 @@ Feature: Test login functionality
     Then Wait 1 seconds
     Then Click element "//a[text()='Login']"
     Then Wait 1 seconds
-    Then Type "dudnikovaanna545+1@gmail.com" into "//input[@name='username']"
+    Then Type "dudnikovaanna545+2@gmail.com" into "//input[@name='username']"
     Then Type "09172024@Sept" into "//input[@name='password']"
     Then Click element "//button[contains(text(), 'Login')]"
-    Then Wait 1 seconds
+    Then Wait 3 seconds
     Then Click element "//span[text()='Sales']"
     Then Wait 1 seconds
     Then Click element "//span[text()='Services/Products']"
@@ -370,6 +370,30 @@ Feature: Test login functionality
     Then Verify presents of element "//div[text()='Please select last name']"
     Then Verify presents of element "//a[@data-bs-toggle="dropdown"]//span[text()='Jason Dean']"
 
+  Scenario: Choosing sidenav item
+    Given Anna Open prod environment
+    Then Anna Login with Admin credentials
+    Then Anna Verify page by title "Profotolizer - Projects"
+    Then Anna Wait 2 seconds
+    Then Anna Choose sales in sidenav
+    
+  Scenario: Choosing item in Sales
+    Given Anna Open prod environment
+    Then Anna Login with Admin credentials
+    Then Anna Verify page by title "Profotolizer - Projects"
+    Then Anna Wait 2 seconds
+    Then Anna Choose sales in sidenav 
+    Then Anna Choose serv_and_prod in Sales
+
+  Scenario: Adding Service or Product
+    Given Anna Open prod environment
+    Then Anna Login with Admin credentials
+    Then Anna Verify page by title "Profotolizer - Projects"
+    Then Anna Wait 2 seconds
+    Then Anna Choose sales in sidenav
+    Then Anna Choose serv_and_prod in Sales
+    Then Anna Add service Service or Product
+    Then Verify presents of element "//div[text()='fff']"
 
 
 

@@ -16,11 +16,11 @@ def open_url(context, url):
 @step('Anna Open {env} environment')
 def open_env(context, env):
     envs = {
-        'prod': 'https://www.profitolizer.com/',
-        'dev': 'https://www.dev.profitolizer.com/',
-        'test': 'https://www.test.profitolizer.com/',
-        'uat': 'https://www.uat.profitolizer.com/',
-        'qa': 'https://www.qa.profitolizer.com/',
+        'prod': 'https://www.profitolizer.com',
+        'dev': 'https://www.dev.profitolizer.com',
+        'test': 'https://www.test.profitolizer.com',
+        'uat': 'https://www.uat.profitolizer.com',
+        'qa': 'https://www.qa.profitolizer.com',
     }
     open_url(context, envs[env])
     sleep(1)
@@ -107,9 +107,9 @@ def create_project_keys(context):
 @step("Anna Login with {user} credentials")
 def login(context, user):
     users = {
-        'Admin': ('dudnikovaanna545+1@gmail.com', '09172024@Sept'),
-        'Sale': ('dudnikovaanna545+2@gmail.com', '09172024@Septe'),
-        'Wrong': ('dudnikovaanna545+1@gmail.com', '09172024@S'),
+        'Admin': ('dudnikovaanna545+2@gmail.com', '09172024@Sept'),
+        'Sale': ('dudnikovaanna545+3@gmail.com', '09172024@Septe'),
+        'Wrong': ('dudnikovaanna545+2@gmail.com', '09172024@S'),
     }
     click_element(context, "//a[text()='Login']")
     type_text(context, users[user][0], "//input[@name='username']")
@@ -117,4 +117,45 @@ def login(context, user):
     click_element(context, "//button[contains(text(), 'Login')]")
     sleep(1)
 
+@step("Anna Choose {item} in sidenav")
+def choose_side(context, item):
+
+    items = {
+        'sales': "//span[text()='Sales']",
+        'team': "//span[text()='Team']",
+        'invest': "//span[text()='Investments']",
+        'rent': "//span[text()='Rent']",
+        'expenses': "//span[text()='Expenses']",
+        'pl': "//span[text()='P&L']",
+        'plgraphs': "//span[text()='P&L Graphs']"
+    }
+    click_element(context, items[item])
+    sleep(1)
+
+
+@step("Anna Choose {smth} in Sales")
+def choose_sale(context, smth):
+    items = {
+        'serv_and_prod': "//span[text()='Services/Products']",
+        'compos': "//span[text()='Compositions']",
+        'cost_fore': "//span[text()='Cost Forecast']",
+        'price_sced': "//span[text()='Pricing Schedule']",
+        'sales_plan': "//span[text()='Sales plan']"
+    }
+    click_element(context, items[smth])
+    sleep(1)
+
+@step("Anna Add {one} Service or Product")
+def add_servs(context, one):
+    click_element(context, "//div[@class='el-table__body-wrapper']//i[@class='bi bi-plus']")
+    click_element(context, "//input[@placeholder='Service name']")
+    servs = {
+        'service': "fff",
+        'product': "aaa"
+    }
+    type_text(context, servs[one], "//input[@placeholder='Service name']")
+    click_element(context, "//div[@class='el-select__selected-item el-select__placeholder is-transparent']")
+    click_element(context, "//li[@class='el-select-dropdown__item is-hovering']")
+    click_element(context, "//button[@class='el-button el-button--success el-button--small is-circle']")
+    sleep(1)
 
