@@ -46,11 +46,12 @@ def type_text(context, text, xpath):
     element.send_keys(text)
     # element.send_keys(Keys.COMMAND, 'a')
 
+
 @step('Anna Clear "{xpath}"')
 def clear_nope(context, xpath):
     element = WebDriverWait(context.driver, 10).until(EC.presence_of_element_located((By.XPATH, xpath)))
     # element = context.driver.find_element(By.XPATH, xpath)
-    element.send_keys(Keys.BACKSPACE*10)
+    element.send_keys(Keys.BACKSPACE * 10)
 
 
 @step('Anna Verify page by title "{text}"')
@@ -117,9 +118,9 @@ def login(context, user):
     click_element(context, "//button[contains(text(), 'Login')]")
     sleep(1)
 
+
 @step("Anna Choose {item} in sidenav")
 def choose_side(context, item):
-
     items = {
         'sales': "//span[text()='Sales']",
         'team': "//span[text()='Team']",
@@ -145,6 +146,7 @@ def choose_sale(context, smth):
     click_element(context, items[smth])
     sleep(1)
 
+
 @step("Anna Add {one} Service or Product")
 def add_servs(context, one):
     click_element(context, "//div[@class='el-table__body-wrapper']//i[@class='bi bi-plus']")
@@ -159,13 +161,13 @@ def add_servs(context, one):
     click_element(context, "//button[@class='el-button el-button--success el-button--small is-circle']")
     sleep(1)
 
+
 @step("Anna Update personal {info} info")
 def change_pers(context, info):
-
     infos = {
         'correct_name': ('Jason', 'Dean'),
         'empty_f_name': ('', 'Dean'),
-        'empty_l_name': ('Jason', ''),
+        'empty_l_name': ('Jason', '')
     }
     click_element(context, "//label[text()='First name']/../div[@class='el-form-item__content']//input")
     clear_nope(context, "//label[text()='First name']/../div[@class='el-form-item__content']//input")
@@ -176,6 +178,7 @@ def change_pers(context, info):
     type_text(context, infos[info][1], "//label[text()='Last name']/../div[@class='el-form-item__content']//input")
     click_element(context, "//button[text()=' Save']")
     sleep(1)
+
 
 @step("Anna Select in header menu {part}")
 def select_parts(context, part):
