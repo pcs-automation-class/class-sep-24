@@ -17,6 +17,7 @@ def before_all(context):
 
     context.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     context.driver.maximize_window()
+    context.home_window = context.driver.current_window_handle
 
 
 # def before_feature(context, feature):
@@ -50,5 +51,3 @@ def after_all(context):
     :param context: The Behave context object that holds shared data between steps and hooks.
     """
     context.driver.quit()
-
-
