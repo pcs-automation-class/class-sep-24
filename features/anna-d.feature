@@ -167,83 +167,6 @@ Feature: Test login functionality
     Then Wait 1 seconds
     Then Verify page by title "Profotolizer - Subscription"
 
-# Commented because made some steps changes in my computer, so now it makes no sense I believe
-# Reason: when I try change first name and last name the necessary text fields are empty,but when it`s done by driver firstly I had to make them blank
-
-#  Scenario: Add first name and last name
-#    Given Open "https://www.profitolizer.com"
-#    Then Wait 1 seconds
-#    Then Click element "//a[text()='Login']"
-#    Then Wait 1 seconds
-#    Then Type "dudnikovaanna545+1@gmail.com" into "//input[@name='username']"
-#    Then Type "09172024@Sept" into "//input[@name='password']"
-#    Then Click element "//button[contains(text(), 'Login')]"
-#    Then Wait 1 seconds
-#    Then Click element "//a[@data-bs-toggle="dropdown"]"
-#    Then Wait 1 seconds
-#    Then Click element "//i[@class="bi bi-person"]"
-#    Then Wait 1 seconds
-#    Then Verify page by title "Profotolizer - Profile"
-#    Then Wait 1 seconds
-#    Then Click element "//label[text()='First name']/../div[@class='el-form-item__content']//input"
-#    Then Clear "//label[text()='First name']/../div[@class='el-form-item__content']//input"
-#    Then Wait 1 seconds
-#    Then Type "Jason" into "//label[text()='First name']/../div[@class='el-form-item__content']//input"
-#    Then Wait 1 seconds
-#    Then Click element "//label[text()='Last name']/../div[@class='el-form-item__content']//input"
-#    Then Clear "//label[text()='Last name']/../div[@class='el-form-item__content']//input"
-#    Then Wait 1 seconds
-#    Then Type "Dean" into "//label[text()='Last name']/../div[@class='el-form-item__content']//input"
-#    Then Wait 1 seconds
-#    Then Click element "//button[text()=' Save']"
-#    Then Wait 1 seconds
-#    Then Verify presents of element "//a[@data-bs-toggle="dropdown"]//span[text()='Jason Dean']"
-
-#  Scenario: Empty first name
-#    Given Open "https://www.profitolizer.com"
-#    Then Wait 1 seconds
-#    Then Click element "//a[text()='Login']"
-#    Then Wait 1 seconds
-#    Then Type "dudnikovaanna545+1@gmail.com" into "//input[@name='username']"
-#    Then Type "09172024@Sept" into "//input[@name='password']"
-#    Then Click element "//button[contains(text(), 'Login')]"
-#    Then Wait 1 seconds
-#    Then Click element "//a[@data-bs-toggle="dropdown"]"
-#    Then Wait 1 seconds
-#    Then Click element "//i[@class="bi bi-person"]"
-#    Then Wait 1 seconds
-#    Then Verify page by title "Profotolizer - Profile"
-#    Then Wait 1 seconds
-#    Then Clear "//label[text()='First name']/../div[@class='el-form-item__content']//input"
-#    Then Click element "//label[text()='First name']/../div[@class='el-form-item__content']//input"
-#    Then Wait 1 seconds
-#    Then Click element "//button[text()=' Save']"
-#    Then Wait 1 seconds
-#    Then Verify presents of element "//div[text()='Please input first name']"
-#    Then Verify presents of element "//a[@data-bs-toggle="dropdown"]//span[text()='Jason Dean']"
-#
-#  Scenario: Empty last name
-#    Given Open "https://www.profitolizer.com"
-#    Then Wait 1 seconds
-#    Then Click element "//a[text()='Login']"
-#    Then Wait 1 seconds
-#    Then Type "dudnikovaanna545+1@gmail.com" into "//input[@name='username']"
-#    Then Type "09172024@Sept" into "//input[@name='password']"
-#    Then Click element "//button[contains(text(), 'Login')]"
-#    Then Wait 1 seconds
-#    Then Click element "//a[@data-bs-toggle="dropdown"]"
-#    Then Wait 1 seconds
-#    Then Click element "//i[@class="bi bi-person"]"
-#    Then Wait 1 seconds
-#    Then Verify page by title "Profotolizer - Profile"
-#    Then Wait 1 seconds
-#    Then Clear "//label[text()='Last name']/../div[@class='el-form-item__content']//input"
-#    Then Wait 1 seconds
-#    Then Click element "//button[text()=' Save']"
-#    Then Wait 1 seconds
-#    Then Verify presents of element "//div[text()='Please select last name']"
-#    Then Verify presents of element "//a[@data-bs-toggle="dropdown"]//span[text()='Jason Dean']"
-
   Scenario: Check Bronze Plan
     Given Open "https://www.profitolizer.com"
     Then Wait 1 seconds
@@ -268,10 +191,10 @@ Feature: Test login functionality
     Then Wait 1 seconds
     Then Click element "//a[text()='Login']"
     Then Wait 1 seconds
-    Then Type "dudnikovaanna545+1@gmail.com" into "//input[@name='username']"
+    Then Type "dudnikovaanna545+2@gmail.com" into "//input[@name='username']"
     Then Type "09172024@Sept" into "//input[@name='password']"
     Then Click element "//button[contains(text(), 'Login')]"
-    Then Wait 1 seconds
+    Then Wait 3 seconds
     Then Click element "//span[text()='Sales']"
     Then Wait 1 seconds
     Then Click element "//span[text()='Services/Products']"
@@ -376,7 +299,80 @@ Feature: Test login functionality
     Then Wait 1 seconds
     Then Verify presents of element "//h4[text()='Investment Groups Help']"
 
+  #Updated scenarios
 
+  Scenario: Updated way to login with valid credentials
+    Given Anna Open prod environment
+    Then Anna Login with Admin credentials
+    Then Anna Verify page by title "Profotolizer - Projects"
+
+  Scenario: Updated way to login with invalid credentials
+    Given Anna Open prod environment
+    Then Anna Login with Wrong credentials
+    Then Anna Verify page by title "Profotolizer - Login"
+
+  Scenario: Add first name and last name
+    Given Anna Open prod environment
+    Then Anna Login with Admin credentials
+    Then Anna Verify page by title "Profotolizer - Projects"
+    Then Anna Select in header menu profile
+    Then Verify page by title "Profotolizer - Profile"
+    Then Anna Update personal correct_name info
+    Then Anna Verify presents of element "//a[@data-bs-toggle="dropdown"]//span[text()='Jason Dean']"
+
+  Scenario: No updates if the first name is empty
+    Given Anna Open prod environment
+    Then Anna Login with Admin credentials
+    Then Anna Verify page by title "Profotolizer - Projects"
+    Then Anna Select in header menu profile
+    Then Verify page by title "Profotolizer - Profile"
+    Then Anna Update personal empty_f_name info
+    Then Verify presents of element "//div[text()='Please input first name']"
+    Then Verify presents of element "//a[@data-bs-toggle="dropdown"]//span[text()='Jason Dean']"
+
+  Scenario: No updates if the last name is empty
+    Given Anna Open prod environment
+    Then Anna Login with Admin credentials
+    Then Anna Verify page by title "Profotolizer - Projects"
+    Then Anna Select in header menu profile
+    Then Verify page by title "Profotolizer - Profile"
+    Then Anna Update personal empty_l_name info
+    Then Verify presents of element "//div[text()='Please select last name']"
+    Then Verify presents of element "//a[@data-bs-toggle="dropdown"]//span[text()='Jason Dean']"
+
+  Scenario: Choosing sidenav item
+    Given Anna Open prod environment
+    Then Anna Login with Admin credentials
+    Then Anna Verify page by title "Profotolizer - Projects"
+    Then Anna Wait 2 seconds
+    Then Anna Choose sales in sidenav
+    
+  Scenario: Choosing item in Sales
+    Given Anna Open prod environment
+    Then Anna Login with Admin credentials
+    Then Anna Verify page by title "Profotolizer - Projects"
+    Then Anna Wait 2 seconds
+    Then Anna Choose sales in sidenav 
+    Then Anna Choose serv_and_prod in Sales
+
+  Scenario: Adding Service or Product
+    Given Anna Open prod environment
+    Then Anna Login with Admin credentials
+    Then Anna Verify page by title "Profotolizer - Projects"
+    Then Anna Wait 2 seconds
+    Then Anna Choose sales in sidenav
+    Then Anna Choose serv_and_prod in Sales
+    Then Anna Add service Service or Product
+    Then Anna Verify presents of element "//div[text()='fff']"
+
+  Scenario: Logging out
+    Given Anna Open prod environment
+    Then Anna Login with Admin credentials
+    Then Anna Verify page by title "Profotolizer - Projects"
+    Then Anna Wait 2 seconds
+    Then Anna Select in header menu logout
+    Then Anna Wait 1 seconds
+    Then Anna Verify page by title "Profotolizer - Login"
 
 
 
