@@ -85,16 +85,16 @@ Feature: Test login functionality
   Scenario: API weather
     Given Get weather in "Chicago"
 
-#  Scenario: Terms and Conditions verification
-#    Given Open prod environment
-#    Then Login with Sale credentials
-#    Then Verify page by title "Profotolizer - Projects"
-#    Then Click element "//a[text()='Privacy Policy']"
-#    Then Wait 2 seconds
-#    Then Switch to new window
-#    Then Verify page by title "Terms and Conditions - Profitolizer"
-#    Then Wait 2 seconds
-#    Then Close current window
-#    Then Wait 2 seconds
-#    Then Switch to home window
-#    Then Verify page by title "Profotolizer - Projects"
+  Scenario: Terms and Conditions verification
+    Given Open prod environment
+    Then Login with Manager credentials
+    Then Verify page by title "Profotolizer - Projects"
+    Then Click element "//a[text()='Privacy Policy']"
+    Then Wait 2 seconds
+    Then Switch to new window
+    Then Verify page by title "Terms and Conditions - Profitolizer"
+    Then Wait 2 seconds
+    Then Close current window
+    Then Wait 2 seconds
+    Then Switch to home window
+    Then Verify page by title "Profotolizer - Projects"
