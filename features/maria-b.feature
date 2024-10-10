@@ -1,42 +1,54 @@
-# Created by bassm at 9/29/2024
-
 Feature: # Test login functionality
   # This feature file contains login functionality tests
 
   Scenario: Login with correct credentials
-    Given Open "https://www.profitolizer.com"
-    Then Click element "//a[text()='Login']"
-    Then Type "mariatest252@gmail.com" into "//input[@name='username']"
-    Then Type "ABCD1" into "//input[@type='password']"
-    Then Click element "//button[@type='submit']"
-    Then Wait 1 seconds
-    Then Verify page by title "Profotolizer - Projects"
+    Given Maria Open "https://www.profitolizer.com"
+    Then Maria Click Element "//a[text()='Login']"
+    Then Maria Type "mariatest252@gmail.com" Into "//input[@name='username']"
+    Then Maria Type "ABCD1" Into "//input[@type='password']"
+    Then Maria Click Element "//button[@type='submit']"
+    Then Maria Wait 1 seconds
+    Then Maria Verify page by Title "Profotolizer - P&L charts"
 
   Scenario: Email textfield is empty
-    Given Open "https://www.profitolizer.com"
-    Then Click element "//a[text()='Login']"
-    Then Type "ABCD1" into "//input[@type='password']"
-    Then Click element "//button[@type='submit']"
-    Then Wait 1 seconds
-    Then Verify presents of element "//div[text()='Email is required']"
+    Given Maria Open "https://www.profitolizer.com"
+    Then Maria Click Element "//a[text()='Login']"
+    Then Maria Type "<ABCD1>" Into "//input[@type='password']"
+    Then Maria Click Element "//button[@type='submit']"
+    Then Maria Wait 1 seconds
+    Then Maria Verify Presents of Element "//div[text()='Email is required']"
 
-    Scenario: Invalid password input
-    Given Open "https://www.profitolizer.com"
-    Then Click element "//a[text()='Login']"
-    Then Type "mariatest252@gmail.com" into "//input[@name='username']"
-    Then Type "ABCD4" into "//input[@type='password']"
-    Then Click element "//button[@type='submit']"
-    Then Wait 1 seconds
-    Then Verify presents of element "//p[text()='Invalid username or password']"
+  Scenario: Sign in using TAB and ENTER keys
+    Given Maria Open "https://www.profitolizer.com"
+    Then Maria Click Element "//a[text()='Login']"
+    Then Maria Press a key "TAB"
+    Then Maria Press a key "TAB"
+    Then Maria Type a "mariatest252@gmail.com"
+    Then Maria Press a key "TAB"
+    Then Maria Type a "ABCD1"
+    Then Maria Press a key "TAB"
+    Then Maria Press a key "Enter"
+    Then Maria Wait 1 seconds
+    Then Maria Verify page by Title "Profotolizer - P&L charts"
 
-    Scenario: Forgotten password
+
+    Scenario: Forgotten password using TAB and ENTER keys
     Given Open "https://www.profitolizer.com"
     Then Click element "//a[text()='Login']"
-    Then Click element "//a[text()='Forgot password?']"
-    Then Wait 1 seconds
-    Then Type "mariatest252@gmail.com" into "//input[@class='el-input__inner']"
-    Then Click element "//button[text()=' Send']"
-    Then Wait 1 seconds
-    Then Verify presents of element "//h5[contains(text(),'Restore Password')]"
+    Then Maria Press a key "TAB"
+    Then Maria Press a key "TAB"
+    Then Maria Type a "mariatest252@gmail.com"
+    Then Maria Press a key "TAB"
+    Then Maria Press a key "TAB"
+    Then Maria Press a key "TAB"
+    Then Maria Press a key "Enter"
+    Then Maria Wait 1 seconds
+    Then Maria Press a key "TAB"
+    Then Maria Press a key "TAB"
+    Then Maria Type a "mariatest252@gmail.com"
+    Then Maria Press a key "TAB"
+    Then Maria Press a key "Enter"
+    Then Maria Wait 1 seconds
+    Then Maria Verify Presents of Element "//h5[contains(text(),'Restore Password')]"
 
 
