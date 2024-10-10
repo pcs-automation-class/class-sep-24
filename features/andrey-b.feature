@@ -65,3 +65,36 @@ Feature: Test login functionality
 #      | project       | start_date | description      | dimension | duration |
 #      | First project | 09/30/2024 | Some description | Month     | 2 Years  |
     Then Wait 5 seconds
+
+  @smoke
+  Scenario: First scenario
+    Given Open "https://www.profitolizer.com"
+    Then Wait 1 seconds
+
+  @regression
+  Scenario: Second scenario
+    Given Open "https://www.profitolizer.com"
+    Then Wait 1 seconds
+
+  @smoke @regression
+  Scenario: Third scenario
+    Given Open "https://www.profitolizer.com"
+    Then Wait 1 seconds
+
+  @api
+  Scenario: API weather
+    Given Get weather in "Chicago"
+
+#  Scenario: Terms and Conditions verification
+#    Given Open prod environment
+#    Then Login with Sale credentials
+#    Then Verify page by title "Profotolizer - Projects"
+#    Then Click element "//a[text()='Privacy Policy']"
+#    Then Wait 2 seconds
+#    Then Switch to new window
+#    Then Verify page by title "Terms and Conditions - Profitolizer"
+#    Then Wait 2 seconds
+#    Then Close current window
+#    Then Wait 2 seconds
+#    Then Switch to home window
+#    Then Verify page by title "Profotolizer - Projects"
