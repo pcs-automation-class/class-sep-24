@@ -159,3 +159,32 @@ def add_servs(context, one):
     click_element(context, "//button[@class='el-button el-button--success el-button--small is-circle']")
     sleep(1)
 
+@step("Anna Update personal {info} info")
+def change_pers(context, info):
+
+    infos = {
+        'correct_name': ('Jason', 'Dean'),
+        'empty_f_name': ('', 'Dean'),
+        'empty_l_name': ('Jason', ''),
+    }
+    click_element(context, "//label[text()='First name']/../div[@class='el-form-item__content']//input")
+    clear_nope(context, "//label[text()='First name']/../div[@class='el-form-item__content']//input")
+    type_text(context, infos[info][0], "//label[text()='First name']/../div[@class='el-form-item__content']//input")
+
+    click_element(context, "//label[text()='Last name']/../div[@class='el-form-item__content']//input")
+    clear_nope(context, "//label[text()='Last name']/../div[@class='el-form-item__content']//input")
+    type_text(context, infos[info][1], "//label[text()='Last name']/../div[@class='el-form-item__content']//input")
+    click_element(context, "//button[text()=' Save']")
+    sleep(1)
+
+@step("Anna Select in header menu {part}")
+def select_parts(context, part):
+    menu_parts = {
+        'profile': "//i[@class='bi bi-person']",
+        'subscription': "//ul[@class='d'ropdown-menu dropdown-menu-end dropdown-menu-arrow profile show']//a[@href='#/subscription']",
+        'logout': "//span[text()='Sign Out']"
+    }
+    click_element(context, "//a[@data-bs-toggle='dropdown']")
+    sleep(2)
+    click_element(context, menu_parts[part])
+    sleep(1)

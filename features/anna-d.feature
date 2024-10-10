@@ -309,64 +309,34 @@ Feature: Test login functionality
   Scenario: Updated way to login with invalid credentials
     Given Anna Open prod environment
     Then Anna Login with Wrong credentials
-    Then Verify page by title "Profotolizer - Login"
+    Then Anna Verify page by title "Profotolizer - Login"
 
   Scenario: Add first name and last name
     Given Anna Open prod environment
     Then Anna Login with Admin credentials
     Then Anna Verify page by title "Profotolizer - Projects"
-    Then Click element "//a[@data-bs-toggle="dropdown"]"
-    Then Wait 1 seconds
-    Then Click element "//i[@class="bi bi-person"]"
-    Then Wait 1 seconds
+    Then Anna Select in header menu profile
     Then Verify page by title "Profotolizer - Profile"
-    Then Wait 1 seconds
-    Then Click element "//label[text()='First name']/../div[@class='el-form-item__content']//input"
-    Then Anna Clear "//label[text()='First name']/../div[@class='el-form-item__content']//input"
-    Then Wait 1 seconds
-    Then Type "Jason" into "//label[text()='First name']/../div[@class='el-form-item__content']//input"
-    Then Wait 1 seconds
-    Then Click element "//label[text()='Last name']/../div[@class='el-form-item__content']//input"
-    Then Anna Clear "//label[text()='Last name']/../div[@class='el-form-item__content']//input"
-    Then Wait 1 seconds
-    Then Type "Dean" into "//label[text()='Last name']/../div[@class='el-form-item__content']//input"
-    Then Wait 1 seconds
-    Then Click element "//button[text()=' Save']"
-    Then Wait 1 seconds
-    Then Verify presents of element "//a[@data-bs-toggle="dropdown"]//span[text()='Jason Dean']"
+    Then Anna Update personal correct_name info
+    Then Anna Verify presents of element "//a[@data-bs-toggle="dropdown"]//span[text()='Jason Dean']"
 
-  Scenario: Empty first name
+  Scenario: No updates if the first name is empty
     Given Anna Open prod environment
     Then Anna Login with Admin credentials
     Then Anna Verify page by title "Profotolizer - Projects"
-    Then Click element "//a[@data-bs-toggle="dropdown"]"
-    Then Wait 1 seconds
-    Then Click element "//i[@class="bi bi-person"]"
-    Then Wait 1 seconds
+    Then Anna Select in header menu profile
     Then Verify page by title "Profotolizer - Profile"
-    Then Wait 1 seconds
-    Then Anna Clear "//label[text()='First name']/../div[@class='el-form-item__content']//input"
-    Then Click element "//label[text()='First name']/../div[@class='el-form-item__content']//input"
-    Then Wait 1 seconds
-    Then Click element "//button[text()=' Save']"
-    Then Wait 1 seconds
+    Then Anna Update personal empty_f_name info
     Then Verify presents of element "//div[text()='Please input first name']"
     Then Verify presents of element "//a[@data-bs-toggle="dropdown"]//span[text()='Jason Dean']"
 
-  Scenario: Empty last name
+  Scenario: No updates if the last name is empty
     Given Anna Open prod environment
     Then Anna Login with Admin credentials
     Then Anna Verify page by title "Profotolizer - Projects"
-    Then Click element "//a[@data-bs-toggle="dropdown"]"
-    Then Wait 1 seconds
-    Then Click element "//i[@class="bi bi-person"]"
-    Then Wait 1 seconds
+    Then Anna Select in header menu profile
     Then Verify page by title "Profotolizer - Profile"
-    Then Wait 1 seconds
-    Then Anna Clear "//label[text()='Last name']/../div[@class='el-form-item__content']//input"
-    Then Wait 1 seconds
-    Then Click element "//button[text()=' Save']"
-    Then Wait 1 seconds
+    Then Anna Update personal empty_l_name info
     Then Verify presents of element "//div[text()='Please select last name']"
     Then Verify presents of element "//a[@data-bs-toggle="dropdown"]//span[text()='Jason Dean']"
 
@@ -393,9 +363,16 @@ Feature: Test login functionality
     Then Anna Choose sales in sidenav
     Then Anna Choose serv_and_prod in Sales
     Then Anna Add service Service or Product
-    Then Verify presents of element "//div[text()='fff']"
+    Then Anna Verify presents of element "//div[text()='fff']"
 
-
+  Scenario: Logging out
+    Given Anna Open prod environment
+    Then Anna Login with Admin credentials
+    Then Anna Verify page by title "Profotolizer - Projects"
+    Then Anna Wait 2 seconds
+    Then Anna Select in header menu logout
+    Then Anna Wait 1 seconds
+    Then Anna Verify page by title "Profotolizer - Login"
 
 
 
