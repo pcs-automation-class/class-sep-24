@@ -17,6 +17,7 @@ def before_all(context):
 
     context.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     context.driver.maximize_window()
+    context.home_window = context.driver.current_window_handle
 
 
 # def before_feature(context, feature):

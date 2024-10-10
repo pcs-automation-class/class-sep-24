@@ -2,8 +2,8 @@ from time import sleep
 
 from behave import step
 from selenium.webdriver.common.by import By
-# from selenium.webdriver.support import expected_conditions as EC
-# from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 # from selenium.webdriver.common.keys import Keys
 
 import api
@@ -36,29 +36,31 @@ def wait_sec(context, sec):
 
 @step('Click element "{xpath}"')
 def click_element(context, xpath):
-    element = context.driver.find_element(By.XPATH, xpath)
+    # element = context.driver.find_element(By.XPATH, xpath)
 
-    # element = WebDriverWait(context.driver, 10).until(EC.element_to_be_clickable((By.XPATH, xpath)))
+    element = WebDriverWait(context.driver, 15).until(EC.element_to_be_clickable((By.XPATH, xpath)))
     element.click()
 
 
 @step('Type "{text}" into "{xpath}"')
 def type_text(context, text, xpath):
-    # element = WebDriverWait(context.driver, 10).until(EC.presence_of_element_located((By.XPATH, xpath)))
-    element = context.driver.find_element(By.XPATH, xpath)
+    element = WebDriverWait(context.driver, 10).until(EC.presence_of_element_located((By.XPATH, xpath)))
+    # element = context.driver.find_element(By.XPATH, xpath)
     element.send_keys(text)
     # element.send_keys(Keys.COMMAND, 'a')
 
 
 @step('Verify page by title "{text}"')
 def verify_title(context, text):
+    sleep(1)
     title = context.driver.title
     assert title == text, f"Expected title: {text}, actual title: {title}. "
 
 
 @step('Verify presents of element "{xpath}"')
 def verify_presents_of_element(context, xpath):
-    elements = context.driver.find_elements(By.XPATH, xpath)
+    # elements = context.driver.find_elements(By.XPATH, xpath)
+    elements = WebDriverWait(context.driver, 10).until(EC.presence_of_all_elements_located((By.XPATH, xpath)))
     assert len(elements) == 1
 
 
@@ -107,12 +109,12 @@ def login(context, user):
         'Admin': ('pcs.automationclass@gmail.com', 'Qwerty7'),
         'Sale': ('pcs.automationclass+1@gmail.com', 'Qwerty7+1'),
         'Wrong': ('pcs.automationclass@gmail.com', 'Qwerty'),
+        'Manager': ('pcs.automationclass+4@gmail.com', 'Qwerty7'),
     }
     click_element(context, "//a[text()='Login']")
     type_text(context, users[user][0], "//input[@name='username']")
     type_text(context, users[user][1], "//input[@name='password']")
     click_element(context, "//button[contains(text(), 'Login')]")
-    sleep(1)
 
 
 @step('Get weather in "{city}"')
