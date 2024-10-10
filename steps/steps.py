@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
+import api
 
 
 @step('Open "{url}"')
@@ -24,6 +25,7 @@ def open_env(context, env):
     }
     open_url(context, envs[env])
     sleep(1)
+    context.home_window = context.driver.current_window_handle
 
 
 @step('Wait {sec} seconds')
@@ -110,3 +112,25 @@ def login(context, user):
     type_text(context, users[user][1], "//input[@name='password']")
     click_element(context, "//button[contains(text(), 'Login')]")
     sleep(1)
+
+
+@step('Get weather in "{city}"')
+def get_weather(context, city):
+    weather = api.get_weather(city)
+    print(weather)
+
+
+@step("Switch to new window")
+def switch_to(context):
+    all_windows = context.driver.window_handles
+    context.driver.switch_to.window(all_windows[1])
+
+
+@step("Switch to home window")
+def switch_to_home(context):
+    context.driver.switch_to.window(context.home_window)
+
+
+@step("Close current window")
+def step_impl(context):
+    context.driver.close()
