@@ -51,5 +51,3 @@ def after_all(context):
     :param context: The Behave context object that holds shared data between steps and hooks.
     """
     context.driver.quit()
-
-
